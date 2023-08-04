@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('https://socasesores.com/micrositios/css/slick.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url('https://socasesores.com/micrositios/css/slick-theme.css') }}"/>
     <link rel="stylesheet" href="{{ url('https://socasesores.com/micrositios/css/app.css') }}">
+    <script src="https://kit.fontawesome.com/ab58011517.js" crossorigin="anonymous"></script>
     @php
                                      $split_name = explode("-", $registro->name);
                                      $productos_seo = str_replace(",",", ",$registro->productos)
@@ -32,6 +33,9 @@
     <link rel="icon" type="image/png" href="https://socasesores.com/img/favicon.png">
     <style type="text/css">
       /* Set the size of the div element that contains the map */
+      .fa-star{
+        color: #FABD05;
+      }
       #map {
         height: 300px;
         /* The height is 400 pixels */
@@ -3347,8 +3351,49 @@ $oficinas = "";
                     </div>
                 </div>
             </section>
-            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-c32c6fd6-0312-4cd5-b8d1-ac169036e024"></div>
+            @if(isset($reviews))
+               <div class="container">
+                   <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-center mb-4 pb-4">Que opinan de nosotros</h2>
+                        </div>
+                        <div class="multiple-items mb-4 pb-4 col-12">
+                            @foreach($reviews->reviews as $opiniones)
+                                    <div class="d-flex flex-column">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <img src="{{ $opiniones->profile_photo_url }}" alt="" class="img-fluid">
+                                            </div>
+                                            <div class="col-9">
+                                                <p style="color: #006D4E; font-weight: bold; margin-bottom: 0">{{ $opiniones->author_name }}</p>
+                                                <p style="font-size: .8rem">{{ $opiniones->relative_time_description }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                @if($opiniones->rating == 5)
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                @elseif($opiniones->rating >= 4)
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                @elseif($opiniones->rating >= 3)
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                @elseif($opiniones->rating >= 2)
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                @elseif($opiniones->rating >= 1)
+                                                    <i class="fa-solid fa-star"></i>
+                                                @else
+                                                @endif 
+                                                
+                                                <p style="font-size: .9rem">{{ $opiniones->text }}</p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                            @endforeach
+                        </div>
+                   </div>
+               </div>
+            @endif
         @endif
 
         @if($registro->url_clean == "lofin")

@@ -58,6 +58,7 @@ class User extends Authenticatable
         'oficina_6',
         'lat',
         'lng',
+        'place_id',
         'url_mapa',
         'productos',
         'productos_hipotecario',

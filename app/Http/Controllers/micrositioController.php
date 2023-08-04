@@ -8,6 +8,7 @@ use App\Models\Logs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
@@ -90,7 +91,13 @@ class micrositioController extends Controller
             }
             
         }else{
-            return view('micrositio',['registro' => $registro[0]]);
+            if($registro[0]["place_id"] != null){
+                $reviews = Http::get('https://maps.googleapis.com/maps/api/place/details/json?place_id='.$registro[0]["place_id"].'&key=AIzaSyCeaHvmVaf68SRKhVbkuXqx1FJtRiApXvw&language=es');
+                $reviews = $reviews->object()->result;
+                return view('micrositio',['registro' => $registro[0],'reviews'=> $reviews]);
+            }else{
+                return view('micrositio',['registro' => $registro[0]]);
+            }
         }
         
     }
