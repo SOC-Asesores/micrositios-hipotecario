@@ -1023,10 +1023,10 @@ $oficinas = "";
                             <div class="col-lg-12 pasos info_1">
                                 <div class="row">
                                     <div class="col-12">
-                                        @if($registro->cotizador != null)
-                                            <iframe style="width: 100%; height: 731px; border: 0;" scrolling="yes" src="{{ $registro->cotizador }}" class="comparadorsocIframe"></iframe>
-                                        @elseif($registro->precalificar != null)
+                                        @if($registro->precalificar != null)
                                             <iframe style="width: 100%; height: 831px; border: 0;" scrolling="yes" src="{{ $registro->precalificar }}" class="comparadorsocIframe"></iframe>
+                                        @elseif($registro->cotizador != null)
+                                            <iframe style="width: 100%; height: 731px; border: 0;" scrolling="yes" src="{{ $registro->cotizador }}" class="comparadorsocIframe"></iframe>
                                         @endif
                                     </div>
                                 </div>
@@ -1569,7 +1569,7 @@ $oficinas = "";
                             <div class="col-12">
                                 @if($registro->pyme_tag != null)
                                     <h2 class="mb-4 mt-4">Precalificate</h2>
-                                    <iframe style="width: 100%; height: 831px; border: 0;" scrolling="yes" src="{{ $registro->pyme_tag }}" class="comparadorsocIframe"></iframe>
+                                    <iframe style="width: 100%; height: 831px; border: 0; background: #fff" scrolling="yes" src="{{ $registro->pyme_tag }}" class="comparadorsocIframe"></iframe>
                                 @else
                                 @endif
                                
@@ -1987,7 +1987,7 @@ $oficinas = "";
                             <div class="col-12">
                                 @if($registro->seguro_tag != null)
                                     <h2 class="mb-4 mt-4">Precalificate</h2>
-                                    <iframe style="width: 100%; height: 831px; border: 0;" scrolling="yes" src="{{ $registro->seguro_tag }}" class="comparadorsocIframe"></iframe>
+                                    <iframe style="width: 100%; height: 831px; border: 0; background: #fff" scrolling="yes" src="{{ $registro->seguro_tag }}" class="comparadorsocIframe"></iframe>
                                 @else
                                 @endif
                                
@@ -3055,6 +3055,8 @@ $oficinas = "";
         @else
         <section class="mb-4 pb-4"></section>
         @endif
+
+        
         
         @if($registro->tipo == "Mixto")
             <section class="home-asesores">
@@ -3351,11 +3353,96 @@ $oficinas = "";
                     </div>
                 </div>
             </section>
-            @if(isset($reviews))
+            
+        @endif
+
+        @if($registro->url_clean == "lofin")
+            <section class="home-asesores">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h2>Conoce a nuestros asesores</h2>
+                        </div>
+                          
+                    </div>
+                </div>
+                <div class="home-buttons">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 col-6 mb-4 asesor-card Merida" style="max-height: 100%;">
+                                <div class="content-button">
+                                    <a href="https://socasesores.com/micrositios-asesores/ondina-amapola-chavez-hernandez" target="_blank">
+                                    <p class="mb-0"><b>Amapola Chávez Hernández</b></p>
+                                    <p style="font-weight: normal; color: #4f4f4f;">Director plaza Acapulco</p>
+                                    
+                                   
+                                    <img src="{{ url('https://socasesores.com/micrositios/img/ondina-amapola-chavez-hernandez.png') }}" alt="" class="mb-0">
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4 asesor-card Merida" style="max-height: 100%;">
+                                <div class="content-button">
+                                    <a href="https://socasesores.com/micrositios-asesores/pablo-de-jesus-bermudez-ramirez" target="_blank">
+                                    <p class="mb-0"><b>Pablo de Jesus Bermudez Ramirez</b></p>
+                                    <p style="font-weight: normal; color: #4f4f4f;">Asesor financiero</p>
+                                    
+                                   
+                                    <img src="{{ url('https://socasesores.com/micrositios/img/pablo-de-jesus-bermudez-ramirez.png') }}" alt="" class="mb-0">
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4 asesor-card Merida" style="max-height: 100%;">
+                                <div class="content-button">
+                                    <a href="https://socasesores.com/micrositios-asesores/evelin-flores-rodriguez" target="_blank">
+                                    <p class="mb-0"><b>Evelin Flores Rodriguez</b></p>
+                                    <p style="font-weight: normal; color: #4f4f4f;">Asesor financiero</p>
+                                    
+                                   
+                                    <img src="{{ url('https://socasesores.com/micrositios/img/evelin-flores-rodriguez.png') }}" alt="" class="mb-0">
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4 asesor-card Merida" style="max-height: 100%;">
+                                <div class="content-button">
+                                    <a href="https://socasesores.com/micrositios-asesores/brenda-guadalupe-diaz-noveron" target="_blank">
+                                    <p class="mb-0"><b style="color: #4f4f4f">Brenda Guadalupe Diaz Noverón</b></p>
+                                    <p style="font-weight: normal; color: #4f4f4f;">Asesor financiero</p>
+                                    
+                                   
+                                    <img src="{{ url('https://socasesores.com/micrositios/img/brenda-guadalupe-diaz-noveron.png') }}" alt="" class="mb-0">
+                                </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-6 mb-4 asesor-card Merida" style="max-height: 100%;">
+                                <div class="content-button">
+                                    <a href="http://socasesores.com/micrositios-asesores/maria-guadalupe-chavez-hernandez" target="_blank">
+                                    <p class="mb-0"><b>Maria Guadalupe Chávez Hernández</b></p>
+                                    <p style="font-weight: normal; color: #4f4f4f;" >Asesor financiero</p>
+                                    
+                                    
+                                    <img src="{{ url('https://socasesores.com/micrositios/img/maria-guadalupe-chavez-hernandez.png') }}" alt="" class="mb-0">
+                                </a>
+                                </div>
+                            </div>
+
+
+                            
+
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+
+        @if(isset($reviews))
                <div class="container">
                    <div class="row">
                         <div class="col-12">
-                            <h2 class="text-center mb-4 pb-4">Que opinan de nosotros</h2>
+                            <h2 class="text-center mb-4 pb-4">Sueños cumplidos</h2>
                         </div>
                         <div class="multiple-items mb-4 pb-4 col-12">
                             @foreach($reviews->reviews as $opiniones)
@@ -3393,89 +3480,6 @@ $oficinas = "";
                         </div>
                    </div>
                </div>
-            @endif
-        @endif
-
-        @if($registro->url_clean == "lofin")
-            <section class="home-asesores">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <h2>Conoce a nuestros asesores</h2>
-                        </div>
-                          
-                    </div>
-                </div>
-                <div class="home-buttons">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-4 col-6 mb-4 asesor-card Merida">
-                                <div class="content-button">
-                                    <a href="https://socasesores.com/micrositios-asesores/ondina-amapola-chavez-hernandez" target="_blank">
-                                    <p class="mb-0"><b>Amapola Chávez Hernández</b></p>
-                                    <p style="font-weight: normal; color: #4f4f4f;">Director plaza Acapulco</p>
-                                    
-                                   
-                                    <img src="{{ url('https://socasesores.com/micrositios/img/ondina-amapola-chavez-hernandez.png') }}" alt="" class="mb-0">
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6 mb-4 asesor-card Merida">
-                                <div class="content-button">
-                                    <a href="https://socasesores.com/micrositios-asesores/pablo-de-jesus-bermudez-ramirez" target="_blank">
-                                    <p class="mb-0"><b>Pablo de Jesus Bermudez Ramirez</b></p>
-                                    <p style="font-weight: normal; color: #4f4f4f;">Asesor financiero</p>
-                                    
-                                   
-                                    <img src="{{ url('https://socasesores.com/micrositios/img/pablo-de-jesus-bermudez-ramirez.png') }}" alt="" class="mb-0">
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6 mb-4 asesor-card Merida">
-                                <div class="content-button">
-                                    <a href="https://socasesores.com/micrositios-asesores/evelin-flores-rodriguez" target="_blank">
-                                    <p class="mb-0"><b>Evelin Flores Rodriguez</b></p>
-                                    <p style="font-weight: normal; color: #4f4f4f;">Asesor financiero</p>
-                                    
-                                   
-                                    <img src="{{ url('https://socasesores.com/micrositios/img/evelin-flores-rodriguez.png') }}" alt="" class="mb-0">
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6 mb-4 asesor-card Merida">
-                                <div class="content-button">
-                                    <a href="https://socasesores.com/micrositios-asesores/brenda-guadalupe-diaz-noveron" target="_blank">
-                                    <p class="mb-0"><b style="color: #4f4f4f">Brenda Guadalupe Diaz Noverón</b></p>
-                                    <p style="font-weight: normal; color: #4f4f4f;">Asesor financiero</p>
-                                    
-                                   
-                                    <img src="{{ url('https://socasesores.com/micrositios/img/brenda-guadalupe-diaz-noveron.png') }}" alt="" class="mb-0">
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-6 mb-4 asesor-card Merida">
-                                <div class="content-button">
-                                    <a href="http://socasesores.com/micrositios-asesores/maria-guadalupe-chavez-hernandez" target="_blank">
-                                    <p class="mb-0"><b>Maria Guadalupe Chávez Hernández</b></p>
-                                    <p style="font-weight: normal; color: #4f4f4f;" >Asesor financiero</p>
-                                    
-                                    
-                                    <img src="{{ url('https://socasesores.com/micrositios/img/maria-guadalupe-chavez-hernandez.png') }}" alt="" class="mb-0">
-                                </a>
-                                </div>
-                            </div>
-
-
-                            
-
-                            
-                            
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-            </section>
         @endif
         
         @if($registro->type == 3)
